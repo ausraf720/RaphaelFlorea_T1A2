@@ -215,7 +215,7 @@ properties are defined here to sit above other hexagons */
   /* Central profile hexagon adjusted to be between all other hexagons */
   .hex_centre {
     font-size: 0.36vw;
-    top: calc(50vw + 50em);
+    top: calc(50vw + 100em);
   }
   #hex_main {
     top: 0em;
@@ -223,7 +223,7 @@ properties are defined here to sit above other hexagons */
     transform: scale(1.2);
   }
   .site-footer {
-    top: 150vw;
+    top: 175vw;
   }
 }
 /* -------------------------------RECTANGLE STYLING--------------------------------- */

@@ -1,0 +1,545 @@
+/* ---------------------------STYLING FOR NON-HEXAGON COMPONENTS----------------------------- */
+/* Here the background is put into the page */
+body {
+  background-size: cover;
+  background-position: center;
+  background-image: url("./hex_background.png");
+}
+
+/** Text component **/
+/* Here the basic formatting for the links is done, removing the underline */
+/* Later the construction of the hexagons they sit inside of will be shown */
+a {
+  font-size: 4em;
+  text-decoration: none;
+  font-family: "monaco", "arial";
+  color: darkblue;
+}
+
+/** Text component **/
+/* Stylisation for the headaing of the page */
+.site-header {
+  position: fixed;
+  width: 100vw; /* Designed to take up the whole width using width: 100vw */
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 80%; /* Also made to be slightly transparent to blend in better */
+  background-color: black;
+  font-family: "monaco", "arial";
+  text-align: center;
+}
+
+/* Further formatting for the heading */
+h1 {
+  color: yellowgreen;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+/** Graphic component **/
+/* This site footer acts as container for the links to the professional accounts */
+.site-footer {
+  background-color: rgb(64, 64, 64);
+  position: absolute; /* Made absolute due to how hexagons are positioned */
+  width: 100vw;
+  top: 175vw;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+}
+
+.icon:hover {
+  width: 5rem;
+  height: 5rem;
+}
+
+/* -------------------------------HEXAGON STYLING--------------------------------- */
+/** Graphic component **/
+/* The first part is to make a rectangle, to form the basis of the hexagon */
+.hexagon {
+  width: 26em;
+  height: 15em;
+  background-color: lightgray;
+  position: absolute;
+  text-align: center;
+  font-size: 4em;
+}
+
+/* Then, before and after pseudoclasses are used to create triangles,
+these will appear above and below the rectangle  */
+.hexagon:before, .hexagon:after {
+  position: absolute;
+  left: 0;
+  width: 0;
+  content: " ";
+  border-left: 13em solid transparent; /* represents left half of triangle */
+  border-right: 13em solid transparent; /* represents right half of triangle */
+}
+
+.hexagon:before { /* triangle that sits on top of rectangle */
+  bottom: 100%;
+  border-bottom: 7.5em solid lightgray;
+}
+
+.hexagon:after { /* triangle that sits below */
+  top: 100%;
+  width: 0;
+  border-top: 7.5em solid lightgray;
+}
+
+/* A simple colour change animation is implented when hovering over a link */
+a:hover {
+  animation: colour_changer 1.6s ease-in-out infinite;
+}
+
+/* keyframes are used to have the colour alternate, 
+this will sync with the rotating hexagon borders */
+@keyframes colour_changer {
+  0% {
+    color: darkblue;
+  }
+  50% {
+    color: rgb(0, 255, 255);
+  }
+  100% {
+    color: darkblue;
+  }
+}
+/* -------------------------------HEXAGON POSITIONING--------------------------------- */
+:root {
+  /* 'high', 'low', etc. will refer to positions used for hexagon placement */
+  --high: -25em;
+  --low: 25em;
+  --super_left: -65em;
+  --super_right: 65em;
+  --close_left: -15em;
+  --close_right: 15em;
+}
+
+/* Here the centre of the hexagons is defined as a single point,
+this is done instead of using tools like flexbox/CSS grid,
+this is because it is easier to control exact positioning of hexagons */
+.hex_centre {
+  font-size: 0.24vw;
+  top: calc(100vw + 50em);
+  left: calc(50vw - 50em); /* calculation done to fully center hexagons */
+  position: absolute;
+}
+
+/* Here hexagon positions are defined using high/low,
+this allows them to be positioned in 2x2 grid in tablet mode */
+#hex1 {
+  top: var(--high);
+  left: var(--high);
+}
+
+#hex2 {
+  top: var(--high);
+  left: var(--low);
+}
+
+#hex3 {
+  top: var(--low);
+  left: var(--high);
+}
+
+#hex4 {
+  top: var(--low);
+  left: var(--low);
+}
+
+/* hex_main and hex_image are for profile image in hexagon position,
+properties are defined here to sit above other hexagons */
+#hex_main {
+  top: -75em;
+  left: 0em;
+  transform: scale(2);
+}
+
+#hex_image {
+  width: 90%;
+  height: auto;
+  position: relative;
+  top: -62%;
+  z-index: 2;
+}
+
+/* Central hexagon size and position adjusted for desktop */
+@media (min-width: 1000px) {
+  .hex_centre {
+    font-size: 0.12vw;
+    top: calc(50vw + 50em);
+  }
+  /* 3rd and 4th hexagon are also repositioned to both be high,
+  that way the 4 hexagon links form a single row */
+  #hex3 {
+    top: var(--high);
+    left: var(--super_left);
+  }
+  #hex4 {
+    top: var(--high);
+    left: var(--super_right);
+  }
+  /* Site footer positioned much higher, due to no 2nd row of hexagons */
+  .site-footer {
+    top: 60vw;
+  }
+}
+/* For mobile, all hexagons repositioned to fit into honeycomb structure */
+@media (max-width: 600px) {
+  #hex1 {
+    top: var(--high);
+    left: var(--close_left);
+  }
+  #hex2 {
+    top: var(--high);
+    left: var(--close_right);
+  }
+  #hex3 {
+    top: var(--low);
+    left: var(--close_left);
+  }
+  #hex4 {
+    top: var(--low);
+    left: var(--close_right);
+  }
+  /* Central profile hexagon adjusted to be between all other hexagons */
+  .hex_centre {
+    font-size: 0.36vw;
+    top: calc(50vw + 50em);
+  }
+  #hex_main {
+    top: 0em;
+    left: 0em;
+    transform: scale(1.2);
+  }
+  .site-footer {
+    top: 150vw;
+  }
+}
+/* -------------------------------RECTANGLE STYLING--------------------------------- */
+/** Graphic component **/
+/* Rectangles act as borders for hexagons, but have special animations and shapes,
+thus conventional border techniques can't be used */
+.rectangle {
+  position: absolute;
+  width: 2em;
+  height: 17em;
+  background-color: gray;
+  z-index: 1;
+}
+
+/* Here, structure of rectangle is defined,
+to be reused depending on the position/rotation of rectangle required */
+/* 6 rectangles for 6 sides of hexagon, numbers worked out beforehand */
+/* These rectangle positions are for the animation sequence,
+when the borders appear to temporarily radiate outward from the hexagon */
+/* Initial positions of each rectangle are set, before animation,
+and note that they use IDs not classes, as rectangle is already class */
+#rec1 {
+  top: -1em;
+  left: -2em;
+  transform: rotate(360deg);
+}
+
+#rec2 {
+  top: 11em;
+  left: 5em;
+  transform: rotate(300deg);
+}
+
+#rec3 {
+  top: 11em;
+  left: 19em;
+  transform: rotate(240deg);
+}
+
+#rec4 {
+  top: -1em;
+  left: 26em;
+  transform: rotate(180deg);
+}
+
+#rec5 {
+  top: -13em;
+  left: 19em;
+  transform: rotate(120deg);
+}
+
+#rec6 {
+  top: -13em;
+  left: 5em;
+  transform: rotate(60deg);
+}
+
+/* -------------------------------RECTANGLE ANIMATIONS--------------------------------- */
+/* Here mixin is used so the animation sequence can be reused for each rectangle */
+/* Below are all the animation for each of the 6 rectangles,
+note that the animation switches between rec and rec_out,
+this gives each rectangle the appearance of radiating inwards and outwards periodically */
+.hexagon:hover > #rec1 {
+  animation: rotator1 2.4s ease-in-out infinite;
+}
+@keyframes rotator1 {
+  /* 0%, 17%. 34%, 50%, 67%, 84%, 100%, are used, 
+  this is done to divide animation into 6 parts */
+  0% {
+    top: -1em;
+    left: -2em;
+    transform: rotate(360deg);
+  }
+  17% {
+    top: 13em;
+    left: 3.5em;
+    transform: rotate(300deg);
+  }
+  34% {
+    top: 11em;
+    left: 19em;
+    transform: rotate(240deg);
+  }
+  50% {
+    top: -1em;
+    left: 28.5em;
+    transform: rotate(180deg);
+  }
+  67% {
+    top: -13em;
+    left: 19em;
+    transform: rotate(120deg);
+  }
+  84% {
+    top: -15em;
+    left: 3.5em;
+    transform: rotate(60deg);
+  }
+  100% {
+    top: -1em;
+    left: -2em;
+    transform: rotate(0deg);
+  }
+}
+
+.hexagon:hover > #rec2 {
+  animation: rotator2 2.4s ease-in-out infinite;
+}
+@keyframes rotator2 {
+  /* 0%, 17%. 34%, 50%, 67%, 84%, 100%, are used, 
+  this is done to divide animation into 6 parts */
+  0% {
+    top: 11em;
+    left: 5em;
+    transform: rotate(300deg);
+  }
+  17% {
+    top: 13em;
+    left: 20.5em;
+    transform: rotate(240deg);
+  }
+  34% {
+    top: -1em;
+    left: 26em;
+    transform: rotate(180deg);
+  }
+  50% {
+    top: -15em;
+    left: 20.5em;
+    transform: rotate(120deg);
+  }
+  67% {
+    top: -13em;
+    left: 5em;
+    transform: rotate(60deg);
+  }
+  84% {
+    top: -1em;
+    left: -4.5em;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 11em;
+    left: 5em;
+    transform: rotate(-60deg);
+  }
+}
+
+.hexagon:hover > #rec3 {
+  animation: rotator3 2.4s ease-in-out infinite;
+}
+@keyframes rotator3 {
+  /* 0%, 17%. 34%, 50%, 67%, 84%, 100%, are used, 
+  this is done to divide animation into 6 parts */
+  0% {
+    top: 11em;
+    left: 19em;
+    transform: rotate(240deg);
+  }
+  17% {
+    top: -1em;
+    left: 28.5em;
+    transform: rotate(180deg);
+  }
+  34% {
+    top: -13em;
+    left: 19em;
+    transform: rotate(120deg);
+  }
+  50% {
+    top: -15em;
+    left: 3.5em;
+    transform: rotate(60deg);
+  }
+  67% {
+    top: -1em;
+    left: -2em;
+    transform: rotate(0deg);
+  }
+  84% {
+    top: 13em;
+    left: 3.5em;
+    transform: rotate(-60deg);
+  }
+  100% {
+    top: 11em;
+    left: 19em;
+    transform: rotate(-120deg);
+  }
+}
+
+.hexagon:hover > #rec4 {
+  animation: rotator4 2.4s ease-in-out infinite;
+}
+@keyframes rotator4 {
+  /* 0%, 17%. 34%, 50%, 67%, 84%, 100%, are used, 
+  this is done to divide animation into 6 parts */
+  0% {
+    top: -1em;
+    left: 26em;
+    transform: rotate(180deg);
+  }
+  17% {
+    top: -15em;
+    left: 20.5em;
+    transform: rotate(120deg);
+  }
+  34% {
+    top: -13em;
+    left: 5em;
+    transform: rotate(60deg);
+  }
+  50% {
+    top: -1em;
+    left: -4.5em;
+    transform: rotate(0deg);
+  }
+  67% {
+    top: 11em;
+    left: 5em;
+    transform: rotate(-60deg);
+  }
+  84% {
+    top: 13em;
+    left: 20.5em;
+    transform: rotate(-120deg);
+  }
+  100% {
+    top: -1em;
+    left: 26em;
+    transform: rotate(-180deg);
+  }
+}
+
+.hexagon:hover > #rec5 {
+  animation: rotator5 2.4s ease-in-out infinite;
+}
+@keyframes rotator5 {
+  /* 0%, 17%. 34%, 50%, 67%, 84%, 100%, are used, 
+  this is done to divide animation into 6 parts */
+  0% {
+    top: -13em;
+    left: 19em;
+    transform: rotate(120deg);
+  }
+  17% {
+    top: -15em;
+    left: 3.5em;
+    transform: rotate(60deg);
+  }
+  34% {
+    top: -1em;
+    left: -2em;
+    transform: rotate(0deg);
+  }
+  50% {
+    top: 13em;
+    left: 3.5em;
+    transform: rotate(-60deg);
+  }
+  67% {
+    top: 11em;
+    left: 19em;
+    transform: rotate(-120deg);
+  }
+  84% {
+    top: -1em;
+    left: 28.5em;
+    transform: rotate(-180deg);
+  }
+  100% {
+    top: -13em;
+    left: 19em;
+    transform: rotate(-240deg);
+  }
+}
+
+.hexagon:hover > #rec6 {
+  animation: rotator6 2.4s ease-in-out infinite;
+}
+@keyframes rotator6 {
+  /* 0%, 17%. 34%, 50%, 67%, 84%, 100%, are used, 
+  this is done to divide animation into 6 parts */
+  0% {
+    top: -13em;
+    left: 5em;
+    transform: rotate(60deg);
+  }
+  17% {
+    top: -1em;
+    left: -4.5em;
+    transform: rotate(0deg);
+  }
+  34% {
+    top: 11em;
+    left: 5em;
+    transform: rotate(-60deg);
+  }
+  50% {
+    top: 13em;
+    left: 20.5em;
+    transform: rotate(-120deg);
+  }
+  67% {
+    top: -1em;
+    left: 26em;
+    transform: rotate(-180deg);
+  }
+  84% {
+    top: -15em;
+    left: 20.5em;
+    transform: rotate(-240deg);
+  }
+  100% {
+    top: -13em;
+    left: 5em;
+    transform: rotate(-300deg);
+  }
+}/*# sourceMappingURL=homepage_style.css.map */

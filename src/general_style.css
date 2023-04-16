@@ -1,0 +1,225 @@
+/* -------------------------------UNIVERSAL STYLING--------------------------------- */
+
+/* Here the background is put into the page */
+body {
+    background-size: cover;
+    background-position: center;
+    background-image: url("./hex_background.png");
+  }
+
+/** Text component **/
+/* Here the navbar is stylised */
+nav {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 80%;
+    background-color: black;   
+    text-align: center;
+    justify-self: center;
+    
+    /* border-box used so padding doesn't cause issues with central alignment */
+    box-sizing: border-box; 
+    padding: 1em;
+}
+
+/* links appearing in the navbar are stylised here */
+.nav_link {
+    font-family: 'monaco';
+    font-size: 2em;
+    color: lightgreen;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5em;
+    border-radius: 20%
+
+}
+
+/* Here, 'a' is used instead of nav_link class for hovering,
+this is so it can be used for both navbar links and contact page links */
+a:hover {
+    transform: scale(1.2);
+    background-color: gray;
+    color: white;
+    transition: 1s;
+    border-top: white solid;
+    border-bottom: white solid;
+}
+
+/** Text component **/
+/* Main heading section for all pages is stylised here */
+.main_heading {
+    margin: 1em;
+    padding: 1em;
+    position: relative;
+    font-family: 'monaco', 'arial';
+    color: yellowgreen;
+    background-color: rgb(32, 32, 32);
+    opacity: 90%;
+    border-top: yellowgreen solid;
+    border-bottom: yellowgreen solid;
+    border-radius: 20%;
+    text-align: center;
+    justify-content: center;
+    width: 70%;
+}
+
+/* Additional styling for text appearing in heading */
+h1 {
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* ---------------------------ARTICLE STYLING FOR 'BLOG' AND 'ABOUT' PAGES----------------------------- */
+
+/* Flexbox container created for both blog and about pages */
+.main_contents {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'monaco', 'arial';
+}
+
+
+/* Formatting for the description in title sections,
+and stylisation also used for list in Blog page */
+.blog_summary {
+    color: lightgrey;
+    margin: 0.5em;
+}
+
+/** Text component **/
+/* Styles for the blog post articles,
+but same stylisation also applicable to about articles,
+thus using the same blog_contents class */
+
+.blog_contents {
+    margin: 1em;
+    width: 30%; /* width set so there is two columns for tablets */
+    background-color: rgb(32, 32, 32);
+    font-family: 'monaco', 'arial';
+    color: white;
+    border-top: white solid;
+    border-radius: 20%;
+    padding: 1em;
+    opacity: 90%;
+
+}
+
+/* Basic styling for the image inside the post */
+.post_image {
+    width: 100%;
+    border-radius: 20%;
+}
+
+/* This code created to englarge posts when hovered over,
+so they become more easily visible */
+.blog_contents:hover {
+    width: 40%;
+    transition: 1s;
+    font-size: 1.2em;
+}
+/* Simple styling to enlarge the post's title */
+.post_title {
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+/** Text component **/
+/* Simple styling for the blog link in About page description,
+so that it fits with the rest of the page's styling better */
+#link_to_blog {
+    color: yellowgreen;
+    text-decoration: none;
+}
+
+/** Graphic component **/
+/* This class is used only for the 'About' page,
+and is a flex container to contain multiple icons relative to the article */
+.icon_container {
+    position: relative;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;   
+    flex-wrap: wrap;    
+}
+
+/* Ensures the icons themselves are relatively small */
+.icon_container * {
+    width: 25%;
+}
+
+/* -------------------------------CONTACT PAGE STYLING--------------------------------- */
+
+
+/* contact line contains both an icon and a link, stylised accordingly */
+.contact_line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+/* specific stylisation for the link in the contact line */
+.contact_line > a {
+    color: lightgrey;
+    padding: 0.5em;
+    border-radius: 20%;
+    text-decoration: none;
+}
+
+/** Graphic component **/
+/* These icons aren't related to the earlier icon classes,
+instead used only for the contact page */
+.contact_icon {
+    width: 10%;
+    padding-right: 2em; /* this is done to put space between icons and the link */
+}
+
+
+/* -------------------------------SCREEN SIZE ADJUSTMENTS--------------------------------- */
+
+/* For mobile screens, stylising is done such that there is only one column for posts*/
+@media (max-width: 600px) {
+    .blog_contents {
+        width: 70%;
+    }
+    .blog_contents:hover {
+        width: 80%;
+    }
+    .nav_link {
+        font-size: 1.5em;
+    }
+    a.hover {
+        font-size: 1.8em;
+    }
+    .main_heading { 
+        width: 90%; /* Heading is made relatively wider to be more visible */
+    }
+    .contact_line {
+        flex-wrap: wrap; /* used so that for mobile devices, icons appear on top of links */
+    }
+}
+
+/* For desktops, stylising is done such that there are now three columns */
+@media (min-width: 1000px) {
+    .blog_contents {
+        width: 25%;
+    }
+    .blog_contents:hover {
+        width: 30%;
+        transition: 1s;
+    }
+    .main_heading {
+        width: 60%; /* Heading is made relatively thinner now, less instrusive */
+    }
+}

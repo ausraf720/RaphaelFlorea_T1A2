@@ -47,9 +47,9 @@ In addition to the hexagons, the title of the page is my name only, for simplici
 
 At the bottom of the page is a footer that displays a Github icon and LinkedIn icon, with links to both of my accounts for those services respectively. They also have animations, where they will enlarge when hovered over.
 
-### _Blog_
+### _Blog (Machine)_
 
-The current blog is about a project of mine involving 'redstone' in the game Minecraft. This project may not be kept on this blog in the future, as the game might make the profile seem unprofessional, but it is a project I want to showcase in some capacity as it demonstrates my ability to understand logic circuits and binary.
+The current blog is about a project of mine involving 'redstone' in the game Minecraft, and it is a project I want to showcase in some capacity as it demonstrates my ability to understand logic circuits and binary.
 
 At the top of this page, and the rest of the pages, is a navbar. This navbar helps the entire website to be accessible in the following ways:
 * The position is fixed, so it's always on the screen
@@ -65,7 +65,7 @@ Likewise, flexbox allows for the possibility to have indivual posts become enlar
 
 Each post contains an image, a summary title, and a description of the image.
 
-Finally, the page has its own title post with larger text and different colours to distinguish itself from the rest of the content, a quick overall description of the project, and has an image showing the current state of the project. It also has a list of the blog posts underneath. The width of this section changes depending on screen, where it appears proportionally less wide the larger the screen. This is so it becomes less instrusive for larger screens.
+Finally, the page has its own title post with larger text and different colours to distinguish itself from the rest of the content, a quick overall description of the project, and has an image showing the current state of the project. The width of this section changes depending on screen, where it appears proportionally less wide the larger the screen. This is so it becomes less instrusive for larger screens.
 
 ### _About_
 

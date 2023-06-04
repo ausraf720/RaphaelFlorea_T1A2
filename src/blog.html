@@ -27,20 +27,20 @@
     <section class = "main_contents">
         <article class="main_heading">
             <h1>
-                Blog about development of Minecraft multiplication machine
+                Development of Minecraft multiplication machine
             </h1>
-            <summary class = "blog_summary">This machine is designed to take in 2 10-bit numbers,
+            <summary class = "blog_summary">This machine is a binary circuit designed to take in 2 10-bit numbers,
                 and output a 20-bit number after multiplication, all using entirely Minecraft redstone. 
                 It also can theoretically do the calculation instantly, without use of memory circuits.
             </summary>
             <br>
-            <img src="./mc_pics/pic2.png" alt="multiplier_machine" class = "post_image">
-            
-            <p class = "blog_summary"> Multiplier update 5 <em>x/x/2023</em></p>
-            <p class = "blog_summary"> Multiplier update 4 <em>x/x/2023</em></p>
-            <p class = "blog_summary"> Multiplier update 3 <em>x/x/2023</em></p>
-            <p class = "blog_summary"> Multiplier update 2 <em>x/x/2022</em></p>
-            <p class = "blog_summary"> Multiplier update 1 <em>x/x/2022</em></p>
+            <img src="./mc_pics/Entire_System.png" alt="Entire_System" class = "post_image">
+            <summary class = "blog_summary">
+                Part 1: Tests
+            </summary>
+            <summary class = "blog_summary">
+                Part 2: Componentry
+            </summary>
         </ul>
         </article>
     </section>
@@ -48,57 +48,136 @@
     <!-- Main section, comprising of all the blog posts -->
     <main class = "main_contents">
 
-        <!-- Last post -->
+        <!-- Test_0 post -->
         <article class = "blog_contents">
-            <img src="./mc_pics/pic3.png" alt="multiplier_5" class = "post_image">
-            <summary class = "post_title">Multiplier update 5 <em>Mar/2023</em></summary>
+            <img src="./mc_pics/Test_0.png" alt="Test_0" class = "post_image">
+            <summary class = "post_title">Test 0 x 0 <strong>PASSED!</strong></summary>
             <p class = "post_content">
-                Here is a picture of the base 2 to base 10 converter unit,
-                that will be used to convert the final base 2 result to base 10.
+                Here is the basic test to show the machine can handle:
+            </p>
+            <p class = "post_content">
+                0 x 0 = 0
             </p>
         </article>
 
-        <!-- Fourth post -->
+        <!-- Test_Small_x_Small post -->
         <article class = "blog_contents">
-            <img src="./mc_pics/pic3.png" alt="multiplier_4" class = "post_image">
-            <summary class = "post_title">Multiplier update 4 <em>x/x/2023</em></summary>
+            <img src="./mc_pics/Test_Small_x_Small.png" alt="Test_Small_x_Small" class = "post_image">
+            <summary class = "post_title">Test Small x Small <strong>PASSED!</strong></summary>
             <p class = "post_content">
-                Here is a picture of the base 2 to base 10 converter unit,
-                that will be used to convert the final base 2 result to base 10.
+                Here is a test to demonstate two small numbers multiplied:
+            </p>
+            <p class = "post_content">
+                <em>Binary:</em> 101 x 110 = 11110
+            </p>
+            <p class = "post_content">
+                <em>Decimal:</em> 5 x 6 = 30
             </p>
         </article>
 
-        <!-- Third post -->
+        <!-- Test_Large_x_Large post -->
         <article class = "blog_contents">
-            <img src="./mc_pics/pic3.png" alt="multiplier_3" class = "post_image">
-            <summary class = "post_title">Multiplier update 3 <em>x/x/2023</em></summary>
+            <img src="./mc_pics/Test_Large_x_Large.png" alt="Test_Large_x_Large" class = "post_image">
+            <summary class = "post_title">Test Large x Large <strong>PASSED!</strong></summary>
             <p class = "post_content">
-                Here is a picture of the base 2 to base 10 converter unit,
-                that will be used to convert the final base 2 result to base 10.
+                Here is a test to demonstate two large numbers multiplied:
+            </p>
+            <p class = "post_content">
+                <em>Binary:</em> 11001011 x 101001111 = 10000100110100101
+            </p>
+            <p class = "post_content">
+                <em>Decimal:</em> 203 x 335 = 68005
             </p>
         </article>
 
-        <!-- Second post -->
+        <!-- Test_Large_x_Small post -->
         <article class = "blog_contents">
-            <img src="./mc_pics/pic1.png" alt="multiplier_2" class = "post_image">
-            <summary class = "post_title">Multiplier update 2 <em>x/x/2022</em></summary>
+            <img src="./mc_pics/Test_Large_x_Small.png" alt="Test_Large_x_Small" class = "post_image">
+            <summary class = "post_title">Test Large x Small <strong>PASSED!</strong></summary>
             <p class = "post_content">
-                Here is a picture of a single binary multiplier unit.
-                It takes the multiplication of 2 1-bit numbers,
-                2 1-bit carries, and outputs a 2-bit number.
+                Here is a test to demonstate a large number being multiplied to a small number:
+            </p>
+            <p class = "post_content">
+                <em>Binary:</em> 1101001100 x 11001 = 101001001101100
+            </p>
+            <p class = "post_content">
+                <em>Decimal:</em> 844 x 25 = 21100
             </p>
         </article>
 
-        <!-- First post -->
+        <!-- Test_Max_x_Max post -->
         <article class = "blog_contents">
-            <img src="./mc_pics/pic1.png" alt="multiplier_1" class = "post_image">
-            <summary class = "post_title">Multiplier update 1 <em>x/x/2022</em></summary>
+            <img src="./mc_pics/Test_Max_x_Max.png" alt="Test_Max_x_Max" class = "post_image">
+            <summary class = "post_title">Test Max x Max <strong>PASSED!</strong></summary>
             <p class = "post_content">
-                Here is a picture of a single binary multiplier unit.
-                It takes the multiplication of 2 1-bit numbers,
-                2 1-bit carries, and outputs a 2-bit number.
+                Here is a test to demonstate if the max value can be obtained:
+            </p>
+            <p class = "post_content">
+                <em>Binary:</em> 1111111111 x 1111111111 = 11111111100000000001
+            </p>
+            <p class = "post_content">
+                <em>Decimal:</em> 1023 x 1023 = 1046529
             </p>
         </article>
+
+        <!-- Multiplier_Unit post -->
+        <article class = "blog_contents">
+            <img src="./mc_pics/Multiplier_Unit.png" alt="Multiplier_Unit" class = "post_image">
+            <summary class = "post_title">Multiplier Unit</summary>
+            <p class = "post_content">
+                Here is what an individual multiplier circuit unit looks like.
+                It handles multiplying 1 digit from each number, 
+                and carries the result to the next multipliers in the array.
+            </p>
+        </article>
+
+        <!-- Multiplier_Array post -->
+        <article class = "blog_contents">
+            <img src="./mc_pics/Multiplier_Array.png" alt="Multiplier_Array" class = "post_image">
+            <summary class = "post_title">Multiplier Array</summary>
+            <p class = "post_content">
+                Here is the entire multiplier array by itself, 
+                only handling the necessary binary logic,
+                but not yet able to display 1s and 0s.
+            </p>
+        </article>
+
+        <!-- Display_Unit post -->
+        <article class = "blog_contents">
+            <img src="./mc_pics/Display_Unit.png" alt="Behind_Display" class = "post_image">
+            <summary class = "post_title">Display Unit</summary>
+            <p class = "post_content">
+                Here is what an individual display unit looks like.
+            </p>
+        </article>
+
+        <!-- Behind_Display post -->
+        <article class = "blog_contents">
+            <img src="./mc_pics/Behind_Display.png" alt="Behind_Display" class = "post_image">
+            <summary class = "post_title">Behind Display</summary>
+            <p class = "post_content">
+                Here is what behind the whole display looks like.
+            </p>
+        </article>
+
+        <!-- Display_Connected post -->
+        <article class = "blog_contents">
+            <img src="./mc_pics/Display_Connected.png" alt="Display_Connected" class = "post_image">
+            <summary class = "post_title">Display Connected with System</summary>
+            <p class = "post_content">
+                Here is what behind the display connected to the rest of the system looks like.
+            </p>
+        </article>
+
+        <!-- Control_Platform post -->
+        <article class = "blog_contents">
+            <img src="./mc_pics/Control_Platform.png" alt="Control_Platform" class = "post_image">
+            <summary class = "post_title">Control Platform</summary>
+            <p class = "post_content">
+                Here is the platform numbers are inputted from.
+            </p>
+        </article>
+
     </main>
 </body>
 </html>

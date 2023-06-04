@@ -127,6 +127,13 @@ so they become more easily visible */
     transition: 1s;
     font-size: 1.2em;
 }
+
+strong {
+    color: green;
+    background-color: greenyellow;
+}
+
+
 /* Simple styling to enlarge the post's title */
 .post_title {
     font-size: 1.2em;

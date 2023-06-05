@@ -102,7 +102,7 @@ Here are the following scritping languages that were used:
 ## Sitemap
 <br>
 
-![Sitemap](./docs/sitemap.png)
+![Sitemap](./docs/Sitemap.png)
 <br>
 
 ## Screenshots
